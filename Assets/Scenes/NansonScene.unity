@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a29b8f51d8798d498473361c3f82b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpd: 0.8
+  horizontalSpd: 0.4
   verticalSpd: 2
-  maxHorizontalSpd: 2
+  maxHorizontalSpd: 6
 --- !u!58 &602924093
 CircleCollider2D:
   m_ObjectHideFlags: 0

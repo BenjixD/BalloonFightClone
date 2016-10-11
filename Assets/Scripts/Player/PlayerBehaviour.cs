@@ -5,9 +5,9 @@ public class PlayerBehaviour : MonoBehaviour {
 
     Rigidbody2D playerRB;
     float direction, lift;
-    public float horizontalSpd = 1.0f;
-    public float verticalSpd = 1.0f;
-    public float maxHorizontalSpd = 3.0f;
+    public float horizontalSpd = 0.4f;
+    public float verticalSpd = 2.0f;
+    public float maxHorizontalSpd = 6.0f;
 
     //Simulate Button spamming
     bool verticalCD;
