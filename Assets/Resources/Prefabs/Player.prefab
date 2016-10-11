@@ -22,7 +22,6 @@ GameObject:
   - 212: {fileID: 212000011706620268}
   - 50: {fileID: 50000011668984662}
   - 61: {fileID: 61000011001774398}
-  - 114: {fileID: 114000014261310370}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -55,7 +54,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -74,17 +73,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
---- !u!114 &114000014261310370
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014120358540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2cf8fc8d06642d4a8031f29646cc648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212000011706620268
 SpriteRenderer:
   m_ObjectHideFlags: 1

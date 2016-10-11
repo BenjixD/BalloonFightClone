@@ -22,6 +22,8 @@ public class PlayerBehaviour : MonoBehaviour {
     public LayerMask groundLayer;
     //Info vars
     public bool isFlying, onGround;
+	//Anim Tree
+	private Animator playerAnim;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour {
         distToGround = GetComponent<Collider2D>().bounds.extents.y * 1.2f;
         isFlying = onGround = false;
         groundLayer = LayerMask.GetMask("Ground");
+		playerAnim = GetComponent<Animator>(); 
     }
 
     // Update is used for receiving input
@@ -59,10 +62,16 @@ public class PlayerBehaviour : MonoBehaviour {
         }
         isFlying = (direction != 0 || lift != 0) && !onGround;
         onGround = isGrounded();
+		setPlayerAnimVars();
     }
 
     bool isGrounded()
     {
         return Physics2D.Raycast(transform.position, -Vector2.up, distance:distToGround, layerMask:groundLayer.value);
     }
+
+	void setPlayerAnimVars(){
+		playerAnim.SetBool ("grounded", onGround);
+		playerAnim.SetBool ("isFlying", isFlying);
+	}
 }
