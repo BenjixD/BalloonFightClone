@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 91935833acedba44da055afb22c5f1b9
-timeCreated: 1476164971
+timeCreated: 1476217272
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,10 +10,11 @@ TextureImporter:
     21300006: blue_dragon_3
     21300008: blue_dragon_4
     21300010: blue_dragon_5
+    21300012: blue_dragon_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -88,8 +89,8 @@ TextureImporter:
       name: blue_dragon_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1200
+        x: 800
+        y: 1600
         width: 400
         height: 400
       alignment: 0
@@ -101,7 +102,7 @@ TextureImporter:
       name: blue_dragon_3
       rect:
         serializedVersion: 2
-        x: 400
+        x: 0
         y: 1200
         width: 400
         height: 400
@@ -114,7 +115,7 @@ TextureImporter:
       name: blue_dragon_4
       rect:
         serializedVersion: 2
-        x: 800
+        x: 400
         y: 1200
         width: 400
         height: 400
@@ -125,6 +126,19 @@ TextureImporter:
       tessellationDetail: 0
     - serializedVersion: 2
       name: blue_dragon_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: blue_dragon_6
       rect:
         serializedVersion: 2
         x: 0
