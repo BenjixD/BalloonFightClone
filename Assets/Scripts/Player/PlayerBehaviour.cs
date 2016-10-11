@@ -74,5 +74,6 @@ public class PlayerBehaviour : MonoBehaviour {
 	void setPlayerAnimVars(){
 		playerAnim.SetBool ("grounded", onGround);
 		playerAnim.SetBool ("isFlying", isFlying);
+		playerAnim.SetFloat ("velocity", playerRB.velocity.magnitude);
 	}
 }

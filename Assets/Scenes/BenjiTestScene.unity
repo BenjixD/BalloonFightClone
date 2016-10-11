@@ -119,9 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a29b8f51d8798d498473361c3f82b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpd: 0.4
+  horizontalSpd: 1.6
   verticalSpd: 2.5
   maxHorizontalSpd: 6
+  gravityScale: 0.6
+  linearDrag: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFlying: 0
+  onGround: 0
 --- !u!95 &573624809
 Animator:
   serializedVersion: 3
@@ -350,7 +357,7 @@ GameObject:
   - 4: {fileID: 1819209463}
   - 212: {fileID: 1819209462}
   - 61: {fileID: 1819209461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
