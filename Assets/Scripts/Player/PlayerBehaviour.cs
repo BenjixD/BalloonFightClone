@@ -8,7 +8,7 @@ public class PlayerBehaviour : MonoBehaviour {
     float distToGround;
 
     // Speed adjustment vars
-    public float horizontalSpd = 0.4f;
+    public float horizontalSpd = 1.6f;
     public float verticalSpd = 2.8f;
     public float maxHorizontalSpd = 6.0f;
     public float gravityScale = 0.6f;
@@ -52,12 +52,13 @@ public class PlayerBehaviour : MonoBehaviour {
     // FixedUpdate is used for movement and methods involving rigidbody
     void FixedUpdate() {
         Vector2 playerMove = new Vector2(direction * horizontalSpd, lift * verticalSpd);
-        playerRB.AddForce(playerMove, ForceMode2D.Impulse);
+        if (lift != 0)
+            playerRB.AddForce(playerMove, ForceMode2D.Impulse);
         if (Mathf.Abs(playerRB.velocity.x) > maxHorizontalSpd)
         {
             playerRB.velocity = new Vector2(Mathf.Sign(playerRB.velocity.x)*maxHorizontalSpd, playerRB.velocity.y);
         }
-        isFlying = (direction != 0 || lift != 0) && !onGround;
+        isFlying = lift != 0 && !onGround;
         onGround = isGrounded();
     }
 
