@@ -208,8 +208,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpd: 0.4
-  verticalSpd: 2
+  verticalSpd: 2.8
   maxHorizontalSpd: 6
+  gravityScale: 0.6
+  linearDrag: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isFlying: 0
+  onGround: 0
 --- !u!58 &602924093
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -235,7 +242,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.7
+  m_GravityScale: 0.6
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -359,7 +366,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1077063268}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 087ad3657dc641547a34b74fd63dc6bb, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -375,7 +382,7 @@ GameObject:
   - 4: {fileID: 1679649107}
   - 212: {fileID: 1679649106}
   - 61: {fileID: 1679649108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +443,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1679649105}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 087ad3657dc641547a34b74fd63dc6bb, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -453,7 +460,6 @@ GameObject:
   - 20: {fileID: 1994750499}
   - 124: {fileID: 1994750498}
   - 92: {fileID: 1994750497}
-  - 81: {fileID: 1994750496}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -474,13 +480,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602924096}
   m_RootOrder: 0
---- !u!81 &1994750496
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1994750494}
-  m_Enabled: 1
 --- !u!92 &1994750497
 Behaviour:
   m_ObjectHideFlags: 0
