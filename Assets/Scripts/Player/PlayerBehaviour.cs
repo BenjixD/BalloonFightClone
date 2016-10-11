@@ -54,8 +54,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // FixedUpdate is used for movement and methods involving rigidbody
     void FixedUpdate() {
+        isFlying = lift != 0 && !onGround;
+        onGround = isGrounded();
         Vector2 playerMove = new Vector2(direction * horizontalSpd, lift * verticalSpd);
-        if (lift != 0)
+        if (lift != 0 || onGround)
             playerRB.AddForce(playerMove, ForceMode2D.Impulse);
         if (Mathf.Abs(playerRB.velocity.x) > maxHorizontalSpd)
         {
