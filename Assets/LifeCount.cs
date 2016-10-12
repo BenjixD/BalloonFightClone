@@ -46,12 +46,13 @@ public class LifeCount : MonoBehaviour {
         Rigidbody2D playerModel = GetComponent<Rigidbody2D>();
         playerModel.freezeRotation = false;
         playerModel.AddTorque(20);
-        Destroy(this, 5.0f);
+        Destroy(gameObject, 3.0f);
 
 		GameObject rope = transform.Find ("Rope").gameObject;
 		rope.transform.parent = null;
 		Rigidbody2D ropeModel = rope.AddComponent<Rigidbody2D>();
 		ropeModel.isKinematic = true;
 		ropeModel.velocity = new Vector2 (0,5);
+        Destroy(rope, 3.0f);
     }
 }

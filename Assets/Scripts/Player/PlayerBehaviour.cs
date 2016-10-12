@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour {
         direction = 0.0f;
         lift = 0.0f;
         verticalCD = false;
-        distToGround = GetComponent<Collider2D>().bounds.extents.y * 1.2f;
+        distToGround = GetComponent<Collider2D>().bounds.extents.y;
         isFlying = onGround = false;
         groundLayer = LayerMask.GetMask("Ground");
 		playerAnim = GetComponent<Animator>(); 
