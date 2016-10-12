@@ -11,6 +11,7 @@ public class LifeCount : MonoBehaviour {
 
     GameObject lifeline;
     SpriteRenderer knot;
+	PlayerBehaviour pb;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class LifeCount : MonoBehaviour {
         knot = lifeline.GetComponent<SpriteRenderer>();
         lifeColors = new Color[] {red, orange, green};
         knot.color = lifeColors[lives - 1];
+		pb = GetComponent<PlayerBehaviour>();
+		pb.playerAnim.SetInteger ("life", lives);
     }
 
 
@@ -31,17 +34,24 @@ public class LifeCount : MonoBehaviour {
         else
         {
             knot.color = lifeColors[lives -1];
+			Debug.Log (knot.color);
         }
     }
 
     void deathAnimation() {
-        GetComponent<PlayerBehaviour>().enabled = false;
+		pb.playerAnim.SetInteger ("life", lives);
+        pb.enabled = false;
         Destroy(lifeline);
         GetComponent<Collider2D>().enabled = false;
         Rigidbody2D playerModel = GetComponent<Rigidbody2D>();
         playerModel.freezeRotation = false;
         playerModel.AddTorque(20);
         Destroy(this, 5.0f);
-        
+
+		GameObject rope = transform.Find ("Rope").gameObject;
+		rope.transform.parent = null;
+		Rigidbody2D ropeModel = rope.AddComponent<Rigidbody2D>();
+		ropeModel.isKinematic = true;
+		ropeModel.velocity = new Vector2 (0,5);
     }
 }

@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour {
     //Info vars
     public bool isFlying, onGround, facingRight;
 	//Anim Tree
-	private Animator playerAnim;
+	public Animator playerAnim;
 
 	// Use this for initialization
 	void Start () {
