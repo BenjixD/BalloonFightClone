@@ -104,7 +104,6 @@ GameObject:
   - 50: {fileID: 50000010871072190}
   - 61: {fileID: 61000010940903470}
   - 95: {fileID: 95000013263701188}
-  - 114: {fileID: 114000011836940786}
   - 114: {fileID: 114000013760530326}
   m_Layer: 0
   m_Name: Player1 Ghost
@@ -258,29 +257,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011836940786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014198169988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a29b8f51d8798d498473361c3f82b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalSpd: 1.6
-  verticalSpd: 2.5
-  maxHorizontalSpd: 6
-  gravityScale: 0.6
-  linearDrag: 1
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  isFlying: 0
-  onGround: 0
-  facingRight: 0
-  playerAnim: {fileID: 95000013263701188}
 --- !u!114 &114000013760530326
 MonoBehaviour:
   m_ObjectHideFlags: 1
