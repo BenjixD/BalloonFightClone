@@ -5,6 +5,8 @@ public class screenWrapper : MonoBehaviour {
 
 	//Ghost Prefab
 	public GameObject ghostPrefab;
+	public PlayerBehaviour myBehaviour;
+	public LifeCount myLife;
 
 	//Ghost Characters on wrap (left, right)
 	private GameObject[] ghosts = new GameObject[2];
@@ -13,6 +15,8 @@ public class screenWrapper : MonoBehaviour {
 	void createGhosts(){
 		for (int i = 0; i < ghosts.Length; i++) {
 			ghosts[i] = Instantiate(ghostPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			ghosts[i].gameObject.GetComponent<GhostBehaviour>().referencedAnim = gameObject.GetComponent<Animator>();
+			ghosts [i].gameObject.GetComponent<GhostBehaviour>().referencedLife = myLife;
 		}
 	}
 
@@ -43,6 +47,8 @@ public class screenWrapper : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cam = GameObject.Find ("Main Camera").GetComponent<cameraInfo> ();
+		myBehaviour = gameObject.GetComponent<PlayerBehaviour>();
+		myLife = gameObject.GetComponent<LifeCount>();
 		createGhosts ();
 	}
 	
@@ -50,5 +56,12 @@ public class screenWrapper : MonoBehaviour {
 	void FixedUpdate () {
 		swapWithGhost ();
 		positionGhosts ();
+	}
+
+	//When GameObject is Destroyed, destroy children (ghosts)
+	void OnDestroy(){
+		for (int i = 0; i < ghosts.Length; i++) {
+			Destroy (ghosts [i], 0.0f);
+		}
 	}
 }

@@ -7,6 +7,8 @@ public class LifeCount : MonoBehaviour {
     public Color green = new Color(66 / 255f, 1.0f, 190 / 255f, 1);
     public Color orange = new Color(1.0f, 142/255f, 0, 1);
     public Color red = new Color(1, 0, 0, 1);
+	public Color transparent = new Color (0, 0, 0, 0);
+	public Color currentColor;
     Color[] lifeColors;
 
     GameObject lifeline;
@@ -17,31 +19,29 @@ public class LifeCount : MonoBehaviour {
 	void Start () {
         lifeline = transform.Find("Rope/life").gameObject;
         knot = lifeline.GetComponent<SpriteRenderer>();
-        lifeColors = new Color[] {red, orange, green};
-        knot.color = lifeColors[lives - 1];
+        lifeColors = new Color[] {transparent, red, orange, green};
+		knot.color = currentColor = lifeColors[lives];
 		pb = GetComponent<PlayerBehaviour>();
 		pb.playerAnim.SetInteger ("life", lives);
     }
 
 
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log("You lost a life!");
         lives -= 1;
-        if (lives <= 0) {
-            Debug.Log("You died!");
-            deathAnimation();
-        }
-        else
-        {
-            knot.color = lifeColors[lives -1];
-			Debug.Log (knot.color);
-        }
+		knot.color = currentColor = lifeColors[lives];
+		pb.playerAnim.SetInteger ("life", lives);
+
+		if (lives <= 0) {
+			Debug.Log("You died!");
+			deathAnimation();
+		}
+
+		Debug.Log (knot.color);
+		Debug.Log("You lost a life!");
     }
 
     void deathAnimation() {
-		pb.playerAnim.SetInteger ("life", lives);
         pb.enabled = false;
-        Destroy(lifeline);
         GetComponent<Collider2D>().enabled = false;
         Rigidbody2D playerModel = GetComponent<Rigidbody2D>();
         playerModel.freezeRotation = false;
