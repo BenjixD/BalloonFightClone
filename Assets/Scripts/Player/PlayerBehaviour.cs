@@ -12,7 +12,8 @@ public class PlayerBehaviour : MonoBehaviour {
     public float verticalSpd = 2.8f;
     public float maxHorizontalSpd = 6.0f;
     public float gravityScale = 0.6f;
-    public float linearDrag = 1.0f;
+    public float airDrag = 0.0f;
+    public float groundDrag = 3.0f;
     
 
     //Simulate Button spamming
@@ -29,7 +30,7 @@ public class PlayerBehaviour : MonoBehaviour {
 	void Start () {
         playerRB = GetComponent<Rigidbody2D>();
         playerRB.gravityScale = gravityScale;
-        playerRB.drag = linearDrag;
+        playerRB.drag = groundDrag;
         direction = 0.0f;
         lift = 0.0f;
         verticalCD = false;
@@ -89,9 +90,19 @@ public class PlayerBehaviour : MonoBehaviour {
 		}
     }
 
+
+    // Checks if on ground through Raycast. Also changes drag
     bool isGrounded()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up, distance:distToGround, layerMask:groundLayer.value);
+        bool res = Physics2D.Raycast(transform.position, -Vector2.up, distance:distToGround, layerMask:groundLayer.value);
+        if (res) {
+            playerRB.drag = groundDrag;
+        }
+        else
+        {
+            playerRB.drag = airDrag;
+        }
+        return res;
     }
 
 	void Flip(){
