@@ -16,7 +16,8 @@ public class screenWrapper : MonoBehaviour {
 		for (int i = 0; i < ghosts.Length; i++) {
 			ghosts[i] = Instantiate(ghostPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 			ghosts[i].gameObject.GetComponent<GhostBehaviour>().referencedAnim = gameObject.GetComponent<Animator>();
-			ghosts [i].gameObject.GetComponent<GhostBehaviour>().referencedLife = myLife;
+			ghosts[i].gameObject.GetComponent<GhostBehaviour>().referencedLife = myLife;
+			ghosts [i].gameObject.GetComponent<GhostBehaviour> ().referencedPlayer = myBehaviour;
 		}
 	}
 
@@ -27,11 +28,13 @@ public class screenWrapper : MonoBehaviour {
 		ghostPosition.x = transform.position.x - cam.getScreenWidth();
 		ghostPosition.y = transform.position.y;
 		ghosts[0].transform.position = ghostPosition;
+		ghosts [0].transform.rotation = transform.rotation;
 
 		//Right Ghost
 		ghostPosition.x = transform.position.x + cam.getScreenWidth();
 		ghostPosition.y = transform.position.y;
 		ghosts[1].transform.position = ghostPosition;
+		ghosts [1].transform.rotation = transform.rotation;
 	}
 
 	void swapWithGhost(){

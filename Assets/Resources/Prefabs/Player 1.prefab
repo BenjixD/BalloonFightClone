@@ -195,7 +195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013682868600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22345372, y: -1.3705158, z: 0}
+  m_LocalPosition: {x: -97, y: -227, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -352,6 +352,7 @@ MonoBehaviour:
   gravityScale: 120
   airDrag: 0
   groundDrag: 5
+  ropeRelease: {x: 0, y: 1500}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -372,8 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 1000014198169988, guid: 0702e0b6bf4bb554ebcf98d12577b45b,
     type: 2}
-  myBehaviour: {fileID: 0}
-  myLife: {fileID: 0}
+  myBehaviour: {fileID: 114000012475055672}
+  myLife: {fileID: 114000010321783270}
 --- !u!212 &212000011494360426
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -204,9 +204,9 @@ Rigidbody2D:
   m_GameObject: {fileID: 1000014198169988}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 0.6
+  m_GravityScale: 120
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11bfd8dcef340048a20857cbaf8bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  referencedPlayer: {fileID: 0}
   referencedAnim: {fileID: 0}
   referencedLife: {fileID: 0}
   myAnim: {fileID: 95000013263701188}

@@ -14,7 +14,7 @@ public class PlayerBehaviour : MonoBehaviour {
     public float gravityScale = 0.6f;
     public float airDrag = 0.0f;
     public float groundDrag = 3.0f;
-    
+	public Vector2 ropeRelease = new Vector2 (0, 1000);
 
     //Simulate Button spamming
     bool verticalCD;
@@ -52,7 +52,7 @@ public class PlayerBehaviour : MonoBehaviour {
             lift = 0.0f;
         }    
         verticalCD = Input.GetAxisRaw("Vertical") != 0.0f;*/
-		isFlying = lift != 0 && !onGround;
+		isFlying = lift != 0.0f && !onGround;
 		onGround = isGrounded();
 		Vector2 playerMove = new Vector2(direction * horizontalSpd, lift * verticalSpd);
 		if (lift != 0 || onGround)
@@ -61,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour {
 		{
 			playerRB.velocity = new Vector2(Mathf.Sign(playerRB.velocity.x)*maxHorizontalSpd, playerRB.velocity.y);
 		}
-		isFlying = lift != 0 && !onGround;
+		isFlying = lift != 0.0f && !onGround;
 		onGround = isGrounded();
 		setPlayerAnimVars();
     }
@@ -117,7 +117,11 @@ public class PlayerBehaviour : MonoBehaviour {
 
 	void setPlayerAnimVars(){
 		playerAnim.SetBool ("grounded", onGround);
-		playerAnim.SetBool ("isFlying", isFlying);
+		if (isFlying) {
+			playerAnim.ResetTrigger ("isFlying");
+			playerAnim.SetTrigger ("isFlying");
+		}
+			
 		playerAnim.SetFloat ("velocity", playerRB.velocity.magnitude);
 	}
 }

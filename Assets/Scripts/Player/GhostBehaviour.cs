@@ -3,12 +3,15 @@ using System.Collections;
 
 public class GhostBehaviour : MonoBehaviour {
 
+	public PlayerBehaviour referencedPlayer; //Reference given by screenWrapper at instantiation
 	public Animator referencedAnim;		//Reference given by screenWrapper at instantiation
 	public LifeCount referencedLife;	//Reference to the life object given by screenWrapper
 
 
 	public Animator myAnim;			//myself
 	public GameObject lifeline; 	//my life			
+
+	private GameObject rope;		//My Rope/Life
 
 	void start(){
 	}
@@ -32,14 +35,14 @@ public class GhostBehaviour : MonoBehaviour {
 	}
 
 	void deathAnimation(){
-		Rigidbody2D playerModel = GetComponent<Rigidbody2D>();
-		playerModel.freezeRotation = false;
-		playerModel.AddTorque(20);
-		GameObject rope = transform.Find ("Rope").gameObject;
+		rope = transform.Find ("Rope").gameObject;
 		rope.transform.parent = null;
 		Rigidbody2D ropeModel = rope.AddComponent<Rigidbody2D>();
 		ropeModel.isKinematic = true;
-		ropeModel.velocity = new Vector2 (0,5);
-		//Destroy(rope, 3.0f);
+		ropeModel.velocity = referencedPlayer.ropeRelease;
+	}
+
+	void OnDestroy(){
+		Destroy(rope);
 	}
 }

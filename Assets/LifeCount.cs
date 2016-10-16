@@ -52,7 +52,7 @@ public class LifeCount : MonoBehaviour {
 		rope.transform.parent = null;
 		Rigidbody2D ropeModel = rope.AddComponent<Rigidbody2D>();
 		ropeModel.isKinematic = true;
-		ropeModel.velocity = new Vector2 (0,5);
+		ropeModel.velocity = pb.ropeRelease;
         Destroy(rope, 3.0f);
     }
 }
