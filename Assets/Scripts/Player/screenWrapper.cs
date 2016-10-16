@@ -12,6 +12,7 @@ public class screenWrapper : MonoBehaviour {
 	private GameObject[] ghosts = new GameObject[2];
 	private cameraInfo cam;
 
+	//Instantiate Ghost Prefab and pass in referenced Object (this)
 	void createGhosts(){
 		for (int i = 0; i < ghosts.Length; i++) {
 			ghosts[i] = Instantiate(ghostPrefab, Vector3.zero, Quaternion.identity) as GameObject;
@@ -21,6 +22,7 @@ public class screenWrapper : MonoBehaviour {
 		}
 	}
 
+	//Update position/rotation/localScale of ghosts
 	void positionGhosts(){
 		Vector3 ghostPosition = transform.position;
 
@@ -28,15 +30,18 @@ public class screenWrapper : MonoBehaviour {
 		ghostPosition.x = transform.position.x - cam.getScreenWidth();
 		ghostPosition.y = transform.position.y;
 		ghosts[0].transform.position = ghostPosition;
-		ghosts [0].transform.rotation = transform.rotation;
+		ghosts[0].transform.rotation = transform.rotation;
+		ghosts[0].transform.localScale = transform.localScale;
 
 		//Right Ghost
 		ghostPosition.x = transform.position.x + cam.getScreenWidth();
 		ghostPosition.y = transform.position.y;
 		ghosts[1].transform.position = ghostPosition;
-		ghosts [1].transform.rotation = transform.rotation;
+		ghosts[1].transform.rotation = transform.rotation;
+		ghosts[1].transform.localScale = transform.localScale;
 	}
 
+	//Swap object with Ghost once screen wrapped
 	void swapWithGhost(){
 		foreach (GameObject ghost in ghosts) {
 			if (ghost.transform.position.x >= cam.getBottomLeft().x && 
