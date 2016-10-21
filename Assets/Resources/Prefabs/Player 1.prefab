@@ -117,6 +117,7 @@ GameObject:
   - 4: {fileID: 4000012838270700}
   - 212: {fileID: 212000012413191694}
   - 50: {fileID: 50000013491323568}
+  - 58: {fileID: 58000011247953726}
   - 61: {fileID: 61000013282375456}
   - 95: {fileID: 95000011629586476}
   - 114: {fileID: 114000013126300738}
@@ -273,22 +274,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61000011727996206
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012825217084}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -4.624626, y: -1730}
-  serializedVersion: 2
-  m_Size: {x: 379.5938, y: 144}
---- !u!61 &61000013282375456
-BoxCollider2D:
+--- !u!58 &58000011247953726
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -298,9 +285,37 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -4.624626, y: 35}
+  m_Offset: {x: -5, y: 21}
   serializedVersion: 2
-  m_Size: {x: 379.5938, y: 413}
+  m_Radius: 190
+--- !u!61 &61000011727996206
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012825217084}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 087ad3657dc641547a34b74fd63dc6bb, type: 2}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -5, y: -1730}
+  serializedVersion: 2
+  m_Size: {x: 380, y: 144}
+--- !u!61 &61000013282375456
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013682868600}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 087ad3657dc641547a34b74fd63dc6bb, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -5, y: 131}
+  serializedVersion: 2
+  m_Size: {x: 380, y: 220}
 --- !u!95 &95000011629586476
 Animator:
   serializedVersion: 3
